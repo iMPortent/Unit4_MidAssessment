@@ -1,11 +1,13 @@
 package nyc.c4q.unit4_midassessment;
 
-import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+
+import static nyc.c4q.unit4_midassessment.BottomFragment.bookstore;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,6 +35,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void sendData(View view){
+        FragmentManager manager = getFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        TopFragment topFragment = new TopFragment();
 
+        String title = view.toString();
+        Bundle bundle = new Bundle();
+        for(int i = 0; i < bookstore.books.size();i++){
+            Book thisBook = bookstore.getBooks().get(i);
+            if(title == thisBook.getTitle()){
+                bundle.putString("title", thisBook.getTitle());
+                bundle.putString("author", thisBook.getAuthor());
+                bundle.putInt("year", thisBook.getYear());
+            }
+        }
+        topFragment.setArguments(bundle);
+        transaction.replace(R.id.top_fragment, topFragment);
+    }
 
 }

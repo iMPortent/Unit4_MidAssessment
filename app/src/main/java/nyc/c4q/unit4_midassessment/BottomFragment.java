@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -21,7 +22,7 @@ import java.util.ArrayList;
 
 public class BottomFragment extends Fragment {
 
-    Bookstore bookstore;
+    static Bookstore bookstore;
     JSONObject object;
     RecyclerView recyclerView;
 
@@ -40,6 +41,7 @@ public class BottomFragment extends Fragment {
 
         return view;
     }
+
 
 
 
