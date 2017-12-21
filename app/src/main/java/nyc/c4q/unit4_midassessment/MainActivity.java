@@ -31,4 +31,8 @@ public class MainActivity extends AppCompatActivity {
         secondTrans.replace(R.id.frag_holder, new DisplayFragment());
         secondTrans.commit();
     }
+
+
+
+
 }
